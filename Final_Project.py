@@ -34,11 +34,12 @@ output_landcover = arcpy.GetParametersAsText(10)
 
 #Potential Parcels Inputs
 parcels = arcpy.GetParametersAsText(11)
+parcel_output = arcpy.GetParametersAsText(12)
 
 #Extract & Clip Inputs
-basin_clip_save = arcpy.GetParametersAsText(12)
-lc_clip_save = arcpy.GetParametersAsText(13)
-basin_extract_save = arcpy.GetParametersAsText(14)
+basin_clip_save = arcpy.GetParametersAsText(13)
+lc_clip_save = arcpy.GetParametersAsText(14)
+basin_extract_save = arcpy.GetParametersAsText(15)
 
 
 #intial geoprocessing from tool inputs
@@ -82,6 +83,9 @@ try:
     lc_clip = arcpy.Clip_Analysis(output_landcover,
                                   dissolved_buffer,
                                   lc_clip_save)
+    parcel_clip = arcpy.Clip_Analysis(parcels,
+                                  dissolved_buffer,
+                                  parcel_output)
 
 except arcpy.ExecuteError:
     arcpy.AddMessage("Unable to execute script.")
