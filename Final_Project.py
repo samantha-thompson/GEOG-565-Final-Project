@@ -92,28 +92,39 @@ except IOError, EnvironmentError:
 finally:
     arcpy.AddMessage("Script Finished.")
 
+#Not sure about Raster to Polygon and Intersect but I think it needs to go raster to polygon first then intersect for it to all be vector
+#Raster to Polygon - Repeat for each Raster File
+inRaster = "Name of raster"
+outPolygons = "NewVectorShapefile"
+field = "VALUE"
+arcpy.RasterToPolygon_conversion(inRaster, outPolygons, "NO_SIMPLIFY", field)
 
-#---------- Mapping portion ----------
-# Set study area/ Clip?
+#Intersect for Desired Areas
+ inFeatures = ["basin", "buffer", "landcover", "parcels"]
+    intersectOutput = "Wetlands_Intersect"
+    clusterTolerance = 1.5    
+    arcpy.Intersect_analysis(inFeatures, intersectOutput, "", clusterTolerance, "point")
+
+#Clip to Study Area
+
+
+#Map Creation
+#Previously Created MXD file
 mxd = arcpy.mapping.MapDocument("C:/Users/saman/OneDrive/Documents/GitHub/GEOG-565-Final-Project/GEOG565Map.mxd")
 
 # Map Document Properties
-
-mxd.author = "Amy Dearborn, Patrick Warner, Samantha Thompson"
+mxd.author = "Amy Dearborn, Samantha Thompson, Patrick Warner"
 mxd.title = "Study Area"
-mxd.summary = "Will Add Summary"
-
+mxd.summary = "Will add summary later"
 mxd.save()
-del mxd
 
-### Adding Layers
-##InsertLayers
-##
-###Add Aerial and Topographic Imagery
-##
-##
-##
-## Add Map Elements - North Arrow, Scale Bar
+
+# Adding Layers
+
+
+#Add Aerial and Topographic Imagery
+
+#Add Map Elements - North Arrow, Scale Bar
 
 ##scaleBar = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "ScaleBar")[0]
 ##df = arcpy.mapping.ListDataFrames(mxd, scaleBar.parentDataFrameName)[0]
@@ -125,9 +136,7 @@ del mxd
 ##scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
 
 ## Add Legend
-##lyr1 = arcpy.mapping.Layer(r"C:\Project\Data\Parcels.lyr")
-##lyr2 = arcpy.mapping.Layer(r"C:\Project\Data\MapIndex.lyr")
-##lyr3 = arcpy.mapping.Layer(r"C:\Project\Data\Orthophoto.lyr")
+##lyr1 = arcpy.mapping.Layer("Wetlands_Intersect)
 ##legend = arcpy.mapping.ListLayoutElements(mxd, "LEGEND_ELEMENT", "Legend")[0]
 ##legend.autoAdd = True
 ##arcpy.mapping.AddLayer(df, lyr1, "BOTTOM")
@@ -137,5 +146,5 @@ del mxd
 ##legend.adjustColumnCount(2)
 ##mxd.save()
 ##del mxd
-##mxd.save()
+
 
