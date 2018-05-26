@@ -91,3 +91,51 @@ except IOError, EnvironmentError:
     arcpy.AddMessage("A File was not found.")
 finally:
     arcpy.AddMessage("Script Finished.")
+
+
+#---------- Mapping portion ----------
+# Set study area/ Clip?
+mxd = arcpy.mapping.MapDocument("C:/Users/saman/OneDrive/Documents/GitHub/GEOG-565-Final-Project/GEOG565Map.mxd")
+
+# Map Document Properties
+
+mxd.author = "Amy Dearborn, Patrick Warner, Samantha Thompson"
+mxd.title = "Study Area"
+mxd.summary = "Will Add Summary"
+
+mxd.save()
+del mxd
+
+### Adding Layers
+##InsertLayers
+##
+###Add Aerial and Topographic Imagery
+##
+##
+##
+## Add Map Elements - North Arrow, Scale Bar
+
+##scaleBar = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "ScaleBar")[0]
+##df = arcpy.mapping.ListDataFrames(mxd, scaleBar.parentDataFrameName)[0]
+##scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
+
+
+##scaleBar = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "NorthArrow")[0]
+##df = arcpy.mapping.ListDataFrames(mxd, northArrow.parentDataFrameName)[0]
+##scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
+
+## Add Legend
+##lyr1 = arcpy.mapping.Layer(r"C:\Project\Data\Parcels.lyr")
+##lyr2 = arcpy.mapping.Layer(r"C:\Project\Data\MapIndex.lyr")
+##lyr3 = arcpy.mapping.Layer(r"C:\Project\Data\Orthophoto.lyr")
+##legend = arcpy.mapping.ListLayoutElements(mxd, "LEGEND_ELEMENT", "Legend")[0]
+##legend.autoAdd = True
+##arcpy.mapping.AddLayer(df, lyr1, "BOTTOM")
+##arcpy.mapping.AddLayer(df, lyr2, "BOTTOM")
+##legend.autoAdd = False
+##arcpy.mapping.AddLayer(df, lyr3, "BOTTOM")
+##legend.adjustColumnCount(2)
+##mxd.save()
+##del mxd
+##mxd.save()
+
