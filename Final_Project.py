@@ -39,7 +39,6 @@ parcel_output = arcpy.GetParametersAsText(12)
 #Extract & Clip Inputs
 basin_clip_save = arcpy.GetParametersAsText(13)
 lc_clip_save = arcpy.GetParametersAsText(14)
-basin_extract_save = arcpy.GetParametersAsText(15)
 
 
 #intial geoprocessing from tool inputs
@@ -77,13 +76,13 @@ try:
         break    
     
     #Extracting rasters by polygon for the wetlands areas
-    basin_clip = arcpy.Clip_Analysis(wria_basin,
+    basin_clip = arcpy.Clip_analysis(wria_basin,
                                      dissolved_buffer,
                                      basin_clip_save)
-    lc_clip = arcpy.Clip_Analysis(output_landcover,
+    lc_clip = arcpy.Clip_analysis(output_landcover,
                                   dissolved_buffer,
                                   lc_clip_save)
-    parcel_clip = arcpy.Clip_Analysis(parcels,
+    parcel_clip = arcpy.Clip_analysis(parcels,
                                   dissolved_buffer,
                                   parcel_output)
 
