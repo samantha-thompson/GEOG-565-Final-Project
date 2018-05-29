@@ -72,8 +72,7 @@ try:
                                                       output_landcover)
         arcpy.AddMessage("Raster to polygon conversion complete.")
     else:
-        arcpy.AddMessage("Spatial Analyst is unavailable")
-        break    
+        arcpy.AddMessage("Spatial Analyst is unavailable")  
     
     #Extracting rasters by polygon for the wetlands areas
     basin_clip = arcpy.Clip_analysis(wria_basin,
