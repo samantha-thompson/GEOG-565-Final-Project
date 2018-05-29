@@ -94,59 +94,148 @@ except IOError, EnvironmentError:
 finally:
     arcpy.AddMessage("Script Finished.")
 
-#Not sure about Raster to Polygon and Intersect but I think it needs to go raster to polygon first then intersect for it to all be vector
-#Raster to Polygon - Repeat for each Raster File
-inRaster = "Name of raster"
-outPolygons = "NewVectorShapefile"
-field = "VALUE"
-arcpy.RasterToPolygon_conversion(inRaster, outPolygons, "NO_SIMPLIFY", field)
-
-#Intersect for Desired Areas
- inFeatures = ["basin", "buffer", "landcover", "parcels"]
-    intersectOutput = "Wetlands_Intersect"
-    clusterTolerance = 1.5    
-    arcpy.Intersect_analysis(inFeatures, intersectOutput, "", clusterTolerance, "point")
-
-#Clip to Study Area
-
-
-#Map Creation
-#Previously Created MXD file
-mxd = arcpy.mapping.MapDocument("C:/Users/saman/OneDrive/Documents/GitHub/GEOG-565-Final-Project/GEOG565Map.mxd")
-
-# Map Document Properties
-mxd.author = "Amy Dearborn, Samantha Thompson, Patrick Warner"
-mxd.title = "Study Area"
-mxd.summary = "Will add summary later"
-mxd.save()
-
-
-# Adding Layers
-
-
-#Add Aerial and Topographic Imagery
-
-#Add Map Elements - North Arrow, Scale Bar
-
-##scaleBar = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "ScaleBar")[0]
-##df = arcpy.mapping.ListDataFrames(mxd, scaleBar.parentDataFrameName)[0]
-##scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
-
-
-##scaleBar = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "NorthArrow")[0]
-##df = arcpy.mapping.ListDataFrames(mxd, northArrow.parentDataFrameName)[0]
-##scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
-
-## Add Legend
-##lyr1 = arcpy.mapping.Layer("Wetlands_Intersect)
-##legend = arcpy.mapping.ListLayoutElements(mxd, "LEGEND_ELEMENT", "Legend")[0]
-##legend.autoAdd = True
-##arcpy.mapping.AddLayer(df, lyr1, "BOTTOM")
-##arcpy.mapping.AddLayer(df, lyr2, "BOTTOM")
-##legend.autoAdd = False
-##arcpy.mapping.AddLayer(df, lyr3, "BOTTOM")
-##legend.adjustColumnCount(2)
+###Intersect for Desired Areas
+## inFeatures = ["basin_clip", "lc_clip", "parcel_clip"]
+##    intersectOutput = "intersect_Output"
+##    clusterTolerance = 1.5    
+##    arcpy.Intersect_analysis(inFeatures, intersectOutput, "", clusterTolerance, "polygon")
+##
+###Study Area
+####Writing Geometries
+##
+##outpath = ""
+##newfc = "Study_Area_Polygon" 
+##
+##in_filepath = "coordinates.txt"
+##in_file = open(in_filepath, "r")
+##
+##lines = []
+##for index, line in enumerate(in_file.readlines()):
+##        if index == 0:
+##                pass
+##        else:
+##                lines.append(line)
+##
+##arcpy.CreateFeatureclass_management(outpath, newfc, "Polygon")
+##cursor = arcpy.da.InsertCursor(newfc, ["ID", "SHAPE@XY"])
+##
+##for line in lines:
+##        values = line.split(";")
+##        oid = values[0]
+##        x = float(values[1])
+##        y = float(values[2])
+##        rowValue = [oid, (x, y)]
+##        cursor.insertRow(rowValue)
+##del rowValue
+##del cursor
+##in_file.close()
+##    
+###Clip to Study Area
+##
+##in_features = "Intersect_Output"
+##clip_features = "Study_Area"
+##out_feature_class = ""
+##xy_tolerance = ""
+##
+###Wetland Scores and Ratings
+####Cursor to Update Attribute Table Based on Parameters
+##fc = ""
+##newfield = ""
+##fieldtype = ""
+##fieldname = arcpy.ValidateFieldName(newfield)
+##arcpy.AddField_management (fc, fieldname, fieldtype, "", "", 10)
+##print "New field created."
+##
+##
+##cursor = arcpy.da.UpdateCursor(fc, ["", ""])
+##for row in cursor:
+##    if (row[0] < ):
+##        row[1] = ""
+##    elif (row[0] >=  and row[0] < ):
+##        row[1] = ""
+##    elif (row[0] >= ):
+##        row[1] = ""
+##    cursor.updateRow(row)
+##del row
+##del cursor
+##print "Rows updated with ratings."
+##
+###Map Creation
+##
+###Previously Created MXD file
+##mxd = arcpy.mapping.MapDocument("C:/GitHub/GEOG-565-Final-Project/GEOG565Map.mxd")
+##
+### Map Document Properties
+##mxd.author = "Amy Dearborn, Samantha Thompson, Patrick Warner"
+##mxd.title = "Study Area"
+##mxd.summary = "Will add summary later"
+##mxd.data = <dyn type="date" format="short"/>
 ##mxd.save()
-##del mxd
-
+##
+##
+### Adding Layers
+##df = arcpy.mapping.ListDataFrames(mxd, "New Data Frame")[0]
+##addLayer = arcpy.mapping.Layer(r"Study_Area")
+##arcpy.mapping.AddLayer(df, addLayer, "TOP")
+##addLayer = arcpy.mapping.Layer(r"Intersect_Ouput")
+##arcpy.mapping.AddLayer(df, addLayer, "TOP")
+####mxd.save
+##
+##
+###Add Map Elements - North Arrow, Scale Bar
+##
+####scaleBar = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "ScaleBar")[0]
+####df = arcpy.mapping.ListDataFrames(mxd, scaleBar.parentDataFrameName)[0]
+####scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
+##
+##
+####scaleBar = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "NorthArrow")[0]
+####df = arcpy.mapping.ListDataFrames(mxd, northArrow.parentDataFrameName)[0]
+####scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
+####mxd.save
+##
+#### Add Legend
+####lyr1 = arcpy.mapping.Layer("Study Area")
+####lyr 2 = arcpy.mapping.Layer(Intersect_Output)
+####legend = arcpy.mapping.ListLayoutElements(mxd, "LEGEND_ELEMENT", "Legend")[0]
+####legend.autoAdd = True
+####arcpy.mapping.AddLayer(df, lyr1, "BOTTOM")
+####arcpy.mapping.AddLayer(df, lyr2, "BOTTOM")
+####legend.adjustColumnCount(2)
+####mxd.save()
+##
+##
+###Add Aerial and Topographic Files
+##
+##
+##
+##df = arcpy.mapping.ListDataFrames(mxd, "New Data Frame")[0]
+##addLayer = arcpy.mapping.Layer(r"TopoMap.lyr")
+##arcpy.mapping.AddLayer(df, addLayer, "BOTTOM")
+##mxd.saveACopy("AS A PDF")
+##
+##df = arcpy.mapping.ListDataFrames(mxd, "New Data Frame")[0]
+##addLayer = arcpy.mapping.Layer(r"Aerial Map.lyr")
+##arcpy.mapping.AddLayer(df, addLayer, "BOTTOM")
+##mxd.saveACopy("AS A PDF")
+##
+##del mxd, addLayer
+##
+##
+###Create PDF of Map Pages
+##pdfpath = ""
+##pdfdoc = arcpy.mapping.PDFDocumentCreate(pdfpath)
+##
+##mapdoc = arcpy.mapping.MapDocument(".mxd")
+##mapdoc.dataDrivenPages.exportToPDF(".pdf")
+##
+##pdfdoc.appendPages("Reference Page")
+##pdfdoc.appendPages("Aerial Map")
+##pdfdoc.appendPages ("Topo Map")
+##
+##pdfdoc.updateDocProperties(pdf_title="",
+##                           pdf_author="")
+##                        
+##pdfdoc.saveAndClose()
+##del mapdoc
 
