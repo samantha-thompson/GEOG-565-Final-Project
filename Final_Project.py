@@ -108,7 +108,7 @@ array = arcpy.Array([arcpy.Point(Lat1, Long1),
                      arcpy.Point(Lat2, Long2),
                      arcpy.Point(Lat3, Long3),
                      arcpy.Point(Lat4, Long4)])
-arcpy.AddMessage["Creating polygon from these points: " +array]
+arcpy.AddMessage("Creating polygon from these points: " +array)
 polygon = arcpy.Polygon(array)
 
 arcpy.CopyFeatures_management([polygon], study_area_save)
@@ -120,54 +120,37 @@ StudyArea_Clip = arcpy.GetParametersAsText(16)
 xy_tolerance = ""
 arcpy.Clip_analysis(intersectOuput, study_area_save, StudyArea_Clip, xy_tolerance)
 
-#Wetland Scores and Ratings
-##Cursor to Update Attribute Table Based on Parameters
-fc = ""
-newfield = ""
-fieldtype = ""
-fieldname = arcpy.ValidateFieldName(newfield)
-arcpy.AddField_management (fc, fieldname, fieldtype, "", "", 10)
-print "New field created."
 
-
-cursor = arcpy.da.UpdateCursor(fc, ["", ""])
-for row in cursor:
-    if (row[0] < ):
-        row[1] = ""
-    elif (row[0] >=  and row[0] < ):
-        row[1] = ""
-    elif (row[0] >= ):
-        row[1] = ""
-    cursor.updateRow(row)
-del row
-del cursor
-print "Rows updated with ratings."
 
 #Map Creation
 
 #Previously Created MXD file
-mxd = arcpy.mapping.MapDocument("C:/GitHub/GEOG-565-Final-Project/GEOG565Map.mxd")
+Map_File = arcpy.GetParameterAsText(16)
+mxd = arcpy.mapping.MapDocument(Map_File)
 
 # Map Document Properties
-mxd = arcpy.mapping.MapDocument("C:/Users/saman/OneDrive/Documents/GitHub/GEOG-565-Final-Project/GEOG565Map.mxd")
 try:
-    # Map Document Properties
-    mxd.author = "Amy Dearborn, Samantha Thompson, Patrick Warner"
-    mxd.title = "Name of Study Area"
-    mxd.summary = "Will add summary later"
+    
+    mxd.author = "Insert Author Name Here"
+    mxd.title = "Insert Map Title Here"
+    mxd.summary = "Insert Text Here"
     mxd.save()
 except Exception as e:
     del mxd
     raise e
 
+# Adding Layers
+layers = arcpy.GetParameterAsText(17).split(",")
+arcpy.AddMessage("List of Layers")
 try:
-    # Adding Layers
-    df = arcpy.mapping.ListDataFrames(mxd,"*")[0]
-    for df_layer in df:
-        if df_layer.name == "contourouput":
-            arcpy.mapping.RemoveLayer(df, df_layer)
-    addLayer = arcpy.mapping.Layer("C:/Users/saman/Desktop/GEOG 565/Assignment 7/contourouput.shp")
-    arcpy.mapping.AddLayer(df, addLayer, "TOP")
+    for layer in layers:
+        layer = layer.strip()
+        df = arcpy.mapping.ListDataFrames(mxd,"*")[0]
+        for df_layer in df:
+            if df_layer.name == layer:
+                arcpy.mapping.RemoveLayer(df, df_layer)
+        addLayer = arcpy.mapping.Layer(layer + ".shp")
+        arcpy.mapping.AddLayer(df, addLayer, "TOP")
     mxd.save()
 except Exception as e:
     del mxd
@@ -191,54 +174,61 @@ except Exception as e:
 try:
     northArrow = arcpy.mapping.ListLayoutElements(mxd, "MAPSURROUND_ELEMENT", "*North Arrow*")[0]
     df = arcpy.mapping.ListDataFrames(mxd, northArrow.parentDataFrameName)[0]
-    scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 2)
+    scaleBar.elementPositionX = df.elementPositionX + (df.elementWidth / 3)
     mxd.save()
 except Exception as e:
     del mxd
     raise e
 
 try:
-    # Add Legend
-    lyr1 = arcpy.mapping.Layer("C:/Users/saman/Desktop/GEOG 565/Assignment 7/contourouput.shp")
-    legend = arcpy.mapping.ListLayoutElements(mxd, "LEGEND_ELEMENT", "*Legend*")[0]
-    legend.autoAdd = True
-    arcpy.mapping.AddLayer(df, lyr1, "BOTTOM")
-    legend.adjustColumnCount(2)
-    mxd.save()
+    for layer in layers:
+        layer = layer.strip()
+        lyr = arcpy.mapping.Layer(layer + ".shp")
+        legend = arcpy.mapping.ListLayoutElements(mxd, "LEGEND_ELEMENT", "*Legend*")[0]
+        legend.autoAdd = True
+        arcpy.mapping.AddLayer(df, lyr, "BOTTOM")
+        legend.adjustColumnCount(2)
+        mxd.save()
 except Exception as e:
     raise e
 finally:
     del mxd
+arcpy.AddMessage("Map Elments Edited")
 
 
-#Add Aerial and Topographic Files
+#Add Aerial and Topographic Files - Files must already exist
 
-df = arcpy.mapping.ListDataFrames(mxd, "New Data Frame")[0]
-addLayer = arcpy.mapping.Layer(r"TopoMap.lyr")
+df = arcpy.mapping.ListDataFrames(mxd,"*")[0]
+Aerial_File = arcpy.GetParameterAsText(18)
+addLayer = arcpy.mapping.Layer(Aerial_File)
 arcpy.mapping.AddLayer(df, addLayer, "BOTTOM")
-mxd.saveACopy("AS A PDF")
+mxd.saveACopy()
+arcpy.AddMessage("Aerial Map Added.")
 
-df = arcpy.mapping.ListDataFrames(mxd, "New Data Frame")[0]
-addLayer = arcpy.mapping.Layer(r"Aerial Map.lyr")
+df = arcpy.mapping.ListDataFrames(mxd,"*")[0]
+Topographic_File = arcpy.GetParameterAsText(19)
+addLayer = arcpy.mapping.Layer(Topographic_File)
 arcpy.mapping.AddLayer(df, addLayer, "BOTTOM")
-mxd.saveACopy("AS A PDF")
+mxd.saveACopy()
+arcpy.AddMessage("Topo Map Added.")
 
 del mxd, addLayer
 
 
 #Create PDF of Map Pages
-pdfpath = ""
+pdfpath = arcpy.GetParameterAsText(19)
 pdfdoc = arcpy.mapping.PDFDocumentCreate(pdfpath)
 
 mapdoc = arcpy.mapping.MapDocument(".mxd")
 mapdoc.dataDrivenPages.exportToPDF(".pdf")
 
-pdfdoc.appendPages("Reference Page")
-pdfdoc.appendPages("Aerial Map")
-pdfdoc.appendPages ("Topo Map")
+pdfdoc.appendPages("Map 1")
+pdfdoc.appendPages("Map 2")
+pdfdoc.appendPages ("Map 3")
 
-pdfdoc.updateDocProperties(pdf_title="",
-                           pdf_author="")
+pdfdoc.updateDocProperties(pdf_title="Insert Title Name Here",
+                           pdf_author="Insert Author Name Here")
                         
 pdfdoc.saveAndClose()
 del mapdoc
+arcpy.AddMessage("Mapbook Created")
