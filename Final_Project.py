@@ -32,13 +32,17 @@ landcover_column = arcpy.GetParametersAsText(8)
 query = arcpy.GetParametersAsText(9) 
 output_landcover = arcpy.GetParametersAsText(10)
 
+#Soil Inputs
+soils = arcpy.GetParametersAsText(11)
+
 #Potential Parcels Inputs
-parcels = arcpy.GetParametersAsText(11)
-parcel_output = arcpy.GetParametersAsText(12)
+parcels = arcpy.GetParametersAsText(12)
+parcel_output = arcpy.GetParametersAsText(13)
 
 #Extract & Clip Inputs
-basin_clip_save = arcpy.GetParametersAsText(13)
-lc_clip_save = arcpy.GetParametersAsText(14)
+basin_clip_save = arcpy.GetParametersAsText(14)
+lc_clip_save = arcpy.GetParametersAsText(15)
+soils_clip_save = arcpy.GetParametersAsText(16)
 
 
 #intial geoprocessing from tool inputs
@@ -84,6 +88,9 @@ try:
     parcel_clip = arcpy.Clip_analysis(parcels,
                                   dissolved_buffer,
                                   parcel_output)
+    soils_clip = arcpy.Clip_analysis(soils,
+                                     dissolved_buffer,
+                                     soils_clip_save)
 
 except arcpy.ExecuteError:
     arcpy.AddMessage("Unable to execute script.")
