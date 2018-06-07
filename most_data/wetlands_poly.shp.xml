@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>Whatcom County GIS</origin>
+				<pubdate>Unpublished Material</pubdate>
+				<title Sync="TRUE">wetlands</title>
+				<serinfo>
+					<sername>none</sername>
+					<issue>none</issue>
+				</serinfo>
+				<pubinfo>
+					<pubplace>Whatcom County</pubplace>
+					<publish>none</publish>
+				</pubinfo>
+Data_Presentation_Form:                        Map
+<ftname Sync="TRUE">wetlands</ftname><geoform Sync="TRUE">vector digital data</geoform><onlink Sync="TRUE">\\MAP-1\VOL1\geodb\shape\wetlands.shp</onlink></citeinfo>
+		</citation>
+		<descript>
+			<abstract>The WETLANDS coverage is a conglomeration of Whatcom County's GIS data related to wetlands.</abstract>
+			<purpose>To identify wetlands and buffers as stated in the Whatcom County Critical Areas Ordinance, Article VI.</purpose>
+			<langdata Sync="TRUE">en</langdata></descript>
+		<descript><langdata Sync="TRUE">en</langdata></descript>
+		<timeperd>
+			<current>Current as of 19980000</current>
+			<timeinfo><sngdate><caldate>REQUIRED: The year (and optionally month, or month and day) for which the data set corresponds to the ground.</caldate></sngdate></timeinfo></timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>None planned</update>
+Geographic_Extent: Whatcom County
+</status>
+		<keywords>
+			<theme>
+				<themekt>None</themekt>
+				<themekey>REQUIRED: Common-use word or phrase used to describe the subject of the data set.</themekey></theme>
+			<place>
+				<placekt>None</placekt>
+			</place>
+			<stratum>
+				<stratkt>None</stratkt>
+			</stratum>
+			<temporal>
+				<tempkt>None</tempkt>
+			</temporal>
+		</keywords>
+		<accconst>None</accconst>
+		<useconst>None</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntperp>
+					<cntper>Chris Behee</cntper>
+					<cntorg>Whatcom County Planning and Development Services - GIS</cntorg>
+				</cntperp>
+				<cntpos>Planner II</cntpos>
+				<cntaddr>
+					<addrtype>Mailing Address</addrtype>
+					<address>Northwest Annex, Suite A</address>
+					<address>5280 Northwest Drive</address>
+					<address>Bellingham, WA  98226-9099</address>
+					<city>Bellingham</city>
+					<state>WA</state>
+					<postal>98226-9094</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>(360) 676-6907</cntvoice>
+				<cnttdd>Unavailable</cnttdd>
+				<cntfax>(360) 738-2493</cntfax>
+				<cntemail>cbehee@co.whatcom.wa.us</cntemail>
+				<hours>8:00 A.M. TO 5:00 P.M MONDAY THRU FRIDAY</hours>
+				<cntinst>none</cntinst>
+			</cntinfo>
+		</ptcontac>
+		<datacred>Chris Behee</datacred>
+		<native Sync="TRUE">Microsoft Windows 2000 Version 5.0 (Build 2195) Service Pack 4; ESRI ArcCatalog 9.1.0.722</native>
+		<spdom><bounding><westbc Sync="TRUE">-123.088285</westbc><eastbc Sync="TRUE">-121.994563</eastbc><northbc Sync="TRUE">49.016359</northbc><southbc Sync="TRUE">48.630303</southbc></bounding><lboundng><leftbc Sync="TRUE">1099132.341093</leftbc><rightbc Sync="TRUE">1359691.742804</rightbc><bottombc Sync="TRUE">602577.304483</bottombc><topbc Sync="TRUE">737692.821898</topbc></lboundng></spdom><natvform Sync="TRUE">Shapefile</natvform></idinfo>
+	<dataqual>
+		<attracc>
+			<attraccr>This coverage is accurate, +/- 40 ft. per NMAS</attraccr>
+		</attracc>
+		<complete>This coverage is not really complete.</complete>
+		<posacc>
+			<horizpa>
+			</horizpa>
+			<horizpa></horizpa>
+			<vertacc>
+				<vertaccr>Not Applicable</vertaccr>
+			</vertacc>
+		</posacc>
+		<lineage>
+			<procstep>
+				<procdesc>The WETLANDS coverage was created by selecting polygons from the NWIWET coverage, merging adjacent wetlands and using the "buffer" function in Arc/Info to create 100 foot buffers around the resulting polygons.  The attribute structures were renamed to fit more closely with the descriptions in the ordinance and extraneous items were dropped for purposes of clarity.</procdesc>
+				<procdate>19980000</procdate>
+			</procstep>
+			<procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\TEMP\xml12.tmp</srcused><date Sync="TRUE">20030623</date><time Sync="TRUE">13073300</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE"></srcused><date Sync="TRUE">20040922</date><time Sync="TRUE">11535100</time></procstep></lineage>
+	</dataqual>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf><esriterm Name="wetlands"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom Sync="TRUE">Polygon</efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">7091</efeacnt><spindex Sync="TRUE">TRUE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm><sdtsterm Name="wetlands"><sdtstype Sync="TRUE">G-polygon</sdtstype><ptvctcnt Sync="TRUE">7091</ptvctcnt></sdtsterm></ptvctinf></spdoinfo>
+	<spref>
+		<horizsys>
+			<planar>
+				<planci><plance Sync="TRUE">coordinate pair</plance><plandu Sync="TRUE">survey feet</plandu><coordrep><absres Sync="TRUE">0.000512</absres><ordres Sync="TRUE">0.000512</ordres></coordrep></planci><mapproj><mapprojn Sync="TRUE">Lambert Conformal Conic</mapprojn><lambertc><stdparll Sync="TRUE">47.500000</stdparll><stdparll Sync="TRUE">48.733333</stdparll><longcm Sync="TRUE">-120.833333</longcm><latprjo Sync="TRUE">47.000000</latprjo><feast Sync="TRUE">1640416.666667</feast><fnorth Sync="TRUE">0.000000</fnorth></lambertc></mapproj></planar>
+			<geodetic>
+				<horizdn Sync="TRUE">North American Datum of 1983</horizdn>
+				<ellips Sync="TRUE">Geodetic Reference System 80</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis><denflat Sync="TRUE">298.257222</denflat></geodetic>
+			<cordsysn><geogcsn Sync="TRUE">GCS_North_American_1983</geogcsn><projcsn Sync="TRUE">NAD_1983_StatePlane_Washington_North_FIPS_4601_Feet</projcsn></cordsysn></horizsys>
+		<vertdef>
+			<altsys>
+				<altdatum>National Geodedic Vertical Datum of 1929</altdatum>
+				<altunits>Meters</altunits>
+				<altenc>Attribute Values</altenc>
+			</altsys>
+		</vertdef>
+	</spref>
+	<eainfo>
+		<detailed Name="wetlands">
+			<enttyp>
+				<enttypl Sync="TRUE">wetlands</enttypl>
+				<enttypd>area of polygon in coverage map units</enttypd>
+				<enttypds>user generated</enttypds>
+				<enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">7091</enttypc></enttyp>
+			<attr>
+				<attrlabl Sync="TRUE">FID</attrlabl>
+				<attrdef Sync="TRUE">Internal feature number.</attrdef>
+				<attrdefs Sync="TRUE">ESRI</attrdefs>
+				<attalias Sync="TRUE">FID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdomv><udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom></attrdomv></attr>
+			<attr><attrlabl Sync="TRUE">Shape</attrlabl><attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Feature geometry.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Coordinates defining the features.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">AREA</attrlabl><attalias Sync="TRUE">AREA</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">15</attwidth><atnumdec Sync="TRUE">3</atnumdec></attr><attr><attrlabl Sync="TRUE">PERIMETER</attrlabl><attalias Sync="TRUE">PERIMETER</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">15</attwidth><atnumdec Sync="TRUE">3</atnumdec></attr><attr><attrlabl Sync="TRUE">WETLANDS_</attrlabl><attalias Sync="TRUE">WETLANDS_</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">11</attwidth></attr><attr><attrlabl Sync="TRUE">WETLANDS_I</attrlabl><attalias Sync="TRUE">WETLANDS_I</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">11</attwidth></attr><attr><attrlabl Sync="TRUE">WETLAND</attrlabl><attalias Sync="TRUE">WETLAND</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">11</attwidth></attr><attr><attrlabl Sync="TRUE">BUFFER</attrlabl><attalias Sync="TRUE">BUFFER</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">11</attwidth></attr><attr><attrlabl Sync="TRUE">ACRES</attrlabl><attalias Sync="TRUE">ACRES</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">19</attwidth><atnumdec Sync="TRUE">3</atnumdec></attr><attr><attrlabl Sync="TRUE">HECTARES</attrlabl><attalias Sync="TRUE">HECTARES</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">19</attwidth><atnumdec Sync="TRUE">3</atnumdec></attr></detailed>
+		<detailed>
+			<enttyp>
+				<enttypl>poly</enttypl>
+				<enttypd>length of polygon in coverage units</enttypd>
+				<enttypds>user generated</enttypds>
+			</enttyp>
+			<attr>
+				<attrlabl>perimeter</attrlabl>
+				<attrdef>input width=4, output width=12, type=floating point, decimal=3</attrdef>
+				<attrdefs>user generated</attrdefs>
+			</attr>
+			<attr><atnumdec/></attr><attr><atnumdec/></attr><attr><atnumdec/></attr><attr/></detailed>
+		<detailed>
+			<enttyp>
+				<enttypl>poly</enttypl>
+				<enttypd>system assigned coverage map feature ID</enttypd>
+				<enttypds>user generated</enttypds>
+			</enttyp>
+			<attr>
+				<attrlabl>wetlands#</attrlabl>
+				<attrdef>input width=4, output width=5, type=binary</attrdef>
+				<attrdefs>user generated</attrdefs>
+			</attr>
+			<attr><atnumdec/></attr><attr><atnumdec/></attr><attr><atnumdec/></attr><attr/></detailed>
+		<detailed>
+			<enttyp>
+				<enttypl>poly</enttypl>
+				<enttypd>system assigned coverage map feature ID</enttypd>
+				<enttypds>user generated</enttypds>
+			</enttyp>
+			<attr>
+				<attrlabl>wetlands-ID</attrlabl>
+				<attrdef>input width=4, output width=5, type=binary</attrdef>
+				<attrdefs>user generated</attrdefs>
+			</attr>
+			<attr><atnumdec/></attr><attr><atnumdec/></attr><attr><atnumdec/></attr><attr/></detailed>
+		<detailed>
+			<enttyp>
+				<enttypl>poly</enttypl>
+				<enttypd>Wetlands as identified in the National Wetlands Inventory.  Valid values for WETLAND are either 0, or 1</enttypd>
+				<enttypds>user generated</enttypds>
+			</enttyp>
+			<attr>
+				<attrlabl>wetlands</attrlabl>
+				<attrdef>input width=4, output width=5, type=binary</attrdef>
+				<attrdefs>user generated</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>0</edomv>
+						<edomvd>not wetlands</edomvd>
+						<edomvds>user generated</edomvds>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr><atnumdec/></attr><attr><atnumdec/></attr><attr><atnumdec/></attr><attr/></detailed>
+		<detailed>
+			<enttyp>
+				<enttypl>poly</enttypl>
+				<enttypd>Standard 100 foot mandatory buffer around all wetlands.  Valid values for BUFFER are either 0, or 1</enttypd>
+				<enttypds>user generated</enttypds>
+			</enttyp>
+			<attr>
+				<attrlabl>buffer</attrlabl>
+				<attrdef>input width=4, output width=5, type=binary</attrdef>
+				<attrdefs>user generated</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>0</edomv>
+						<edomvd>not buffer</edomvd>
+						<edomvds>user generated</edomvds>
+					</edom>
+					<edom>
+						<edomv>1</edomv>
+						<edomvd>buffer</edomvd>
+						<edomvds>user generated</edomvds>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr><atnumdec/></attr><attr><atnumdec/></attr><attr><atnumdec/></attr><attr/></detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntperp>
+					<cntper>Mike Pelela, Sarah Watts</cntper>
+					<cntorg>Whatcom County Planning and Development Services - GIS</cntorg>
+				</cntperp>
+				<cntpos>GIS Specialist</cntpos>
+				<cntaddr>
+					<addrtype>Mailing Address</addrtype>
+					<address>Northwest Annex, Suite A</address>
+					<address>5280 Northwest Drive</address>
+					<address>Bellingham, WA  98226-9099</address>
+					<city>Bellingham</city>
+					<state>WA</state>
+					<postal>98226-9094</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>(360) 676-6907</cntvoice>
+				<cnttdd>Unavailable</cnttdd>
+				<cntfax>(360) 738-2493</cntfax>
+				<cntemail>mpelela@co.whatcom.wa.us</cntemail>
+				<hours>8:00 A.M. TO 5:00 P.M MONDAY THRU FRIDAY</hours>
+				<cntinst>none</cntinst>
+			</cntinfo>
+		</distrib>
+		<distliab>Use of Whatcom County's GIS Data Implies The User's Aggrement with The Following Statement:    Whatcom County disclaims any warranty of merchantibility or warranty of fitness of this map for any particular purpose, either express or implied.  No representation or warranty is made concerning the accuracy, currancy, completeness, or quality of data depicted on this map.  Any user of this map assumes all responsibility for the use thereof, and further agrees to hold Whatcom County harmless from and against any damage, loss, or liability arising from any use of this map.</distliab>
+		<custom>Contact Whatcom County Planning and Development Services - GIS, fee for labor $55/hr (1 hr min.) for any file manipulation other than copying.</custom>
+		<resdesc Sync="TRUE">Downloadable Data</resdesc><stdorder><digform><digtinfo><transize Sync="TRUE">8.766</transize><dssize Sync="TRUE">8.766</dssize></digtinfo></digform></stdorder></distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20051216</metd>
+		<metrd>Annually</metrd>
+		<metfrd>Annually</metfrd>
+		<metc>
+			<cntinfo>
+				<cntperp>
+					<cntper>Chris Behee</cntper>
+					<cntorg>Whatcom County Planning and Development Services - GIS</cntorg>
+				</cntperp>
+				<cntpos>Planner II</cntpos>
+				<cntaddr>
+					<addrtype>Mailing Address</addrtype>
+					<address>Northwest Annex, Suite A</address>
+					<address>5280 Northwest Drive</address>
+					<address>Bellingham, WA  98226-9099</address>
+					<city>Bellingham</city>
+					<state>WA</state>
+					<postal>98226-9094</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>(360) 676-6907</cntvoice>
+				<cnttdd>Unavailable</cnttdd>
+				<cntfax>(360) 738-2493</cntfax>
+				<cntemail>cbehee@co.whatcom.wa.us</cntemail>
+				<hours>8:00 A.M. TO 5:00 P.M MONDAY THRU FRIDAY</hours>
+				<cntinst>none</cntinst>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<metsi>
+			<metscs>None</metscs>
+			<metsc>Unclassified</metsc>
+			<metshd>None</metshd>
+		</metsi>
+		<langmeta Sync="TRUE">en</langmeta><mettc Sync="TRUE">local time</mettc><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><CreaDate>20180606</CreaDate><CreaTime>16304100</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20051216</SyncDate><SyncTime>15544000</SyncTime><ModDate>20051216</ModDate><ModTime>15544000</ModTime><DataProperties><itemProps><itemLocation><linkage Sync="TRUE">file://\\PL025070\C$\Users\adearbor\Desktop\final project\wetlands polygon\commondata\shape\wetlands</linkage><protocol Sync="TRUE">Local Area Network</protocol></itemLocation></itemProps><copyHistory><copy source="M:\geodb\shape\wetlands" dest="\\PL025070\C$\Users\adearbor\Desktop\final project\wetlands polygon\commondata\shape\wetlands" date="20180605" time="16051400"></copy></copyHistory></DataProperties><ArcGISFormat>1.0</ArcGISFormat></Esri><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows 2000 Version 5.0 (Build 2195) Service Pack 4; ESRI ArcCatalog 9.1.0.722</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">wetlands</resTitle><presForm><PresFormCd Sync="TRUE" value="005"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd></spatRpType><dataExt><geoEle><GeoBndBox esriExtentType="native"><westBL Sync="TRUE">1099132.341093</westBL><eastBL Sync="TRUE">1359691.742804</eastBL><northBL Sync="TRUE">737692.821898</northBL><southBL Sync="TRUE">602577.304483</southBL><exTypeCode Sync="TRUE">1</exTypeCode></GeoBndBox></geoEle></dataExt><geoBox esriExtentType="decdegrees"><westBL Sync="TRUE">-123.088285</westBL><eastBL Sync="TRUE">-121.994563</eastBL><northBL Sync="TRUE">49.016359</northBL><southBL Sync="TRUE">48.630303</southBL><exTypeCode Sync="TRUE">1</exTypeCode></geoBox></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">file://\\MAP-1\VOL1\geodb\shape\wetlands.shp</linkage><protocol Sync="TRUE">Local Area Network</protocol></onLineSrc><transSize Sync="TRUE">8.766</transSize></distorTran><distorFormat><formatName Sync="TRUE">Shapefile</formatName></distorFormat></distributor></distInfo><refSysInfo><RefSystem><refSysID><identCode Sync="TRUE">NAD_1983_StatePlane_Washington_North_FIPS_4601_Feet</identCode></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><topLvl><TopoLevCd Sync="TRUE" value="001"></TopoLevCd></topLvl><geometObjs Name="wetlands"><geoObjTyp><GeoObjTypCd Sync="TRUE" value="001"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">7091</geoObjCnt></geometObjs></VectSpatRep></spatRepInfo><mdDateSt Sync="TRUE">20051216</mdDateSt></metadata>
